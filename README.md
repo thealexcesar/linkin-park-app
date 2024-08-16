@@ -1,27 +1,26 @@
-# LinkinParkApp
+# Projeto Angular - Informações Musicais
+Este projeto é uma Single Page Application (SPA) desenvolvida em Angular, que exibe informações detalhadas sobre músicas, álbuns e outros trabalhos de um artista ou banda. A aplicação consome a API do Spotify para obter dados atualizados e permite que os usuários interajam com as informações.
+[//], além de possibilitar a administração de novos conteúdos.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
+## Funcionalidades
+- **Exploração de Músicas e Álbuns**: Visualize detalhes sobre músicas, álbuns e discografias do artista escolhido.
+- **Autenticação com Spotify**: Usuários podem logar com suas contas do Spotify via OAuth2.
+- **Gerenciamento de Playlists**: Adicione músicas às playlists, edite e remova músicas diretamente da aplicação.
+- **Página Fã-Admin**: Área reservada para usuários administradores cadastrarem novos trabalhos do artista.
+- **Design Responsivo**: Interface moderna e responsiva, criada com Angular Material.
 
-## Development server
+## Tecnologias Utilizadas
+- **Angular**: Framework principal para desenvolvimento da aplicação.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+[//]- **Angular Material**: Biblioteca de componentes para estilização e criação de uma interface intuitiva.
 
-## Code scaffolding
+[//]- **HTTPClient**: Serviço do Angular para realizar as requisições à API do Spotify.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[//]- **OAuth2 e JWT**: Implementação de autenticação segura utilizando tokens.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Estrutura do Projeto
+O projeto está organizado em módulos e componentes para facilitar a manutenção e escalabilidade:
+- `app/`: Contém os módulos e componentes principais da aplicação.
+  - `components/`: Componentes individuais como `home`, `album`, `track`, etc.
+  - `services/`: Serviços responsáveis por interagir com as APIs e gerenciar a lógica de negócios.
+  - `models/`: Modelos de dados usados na aplicação.
