@@ -12,12 +12,6 @@ Este projeto é uma Single Page Application (SPA) desenvolvida em Angular, que e
 ## Tecnologias Utilizadas
 - **Angular**: Framework principal para desenvolvimento da aplicação.
 
-[//]- **Angular Material**: Biblioteca de componentes para estilização e criação de uma interface intuitiva.
-
-[//]- **HTTPClient**: Serviço do Angular para realizar as requisições à API do Spotify.
-
-[//]- **OAuth2 e JWT**: Implementação de autenticação segura utilizando tokens.
-
 ## Estrutura do Projeto
 O projeto está organizado em módulos e componentes para facilitar a manutenção e escalabilidade:
 - `app/`: Contém os módulos e componentes principais da aplicação.
