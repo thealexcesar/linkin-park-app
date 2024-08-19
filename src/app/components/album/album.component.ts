@@ -16,7 +16,7 @@ export class AlbumComponent implements OnInit {
     constructor(private route: ActivatedRoute, private spotifyService: SpotifyService) {}
 
     ngOnInit(): void {
-        const albumId = this.route.snapshot.paramMap.get('id');
+        const albumId: string | null = this.route.snapshot.paramMap.get('id');
         if (albumId) {
             this.spotifyService.getAlbum(albumId).subscribe((album) => {
                 this.album = album;
@@ -28,11 +28,9 @@ export class AlbumComponent implements OnInit {
         window.open(trackUrl, '_blank');
     }
 
-    // Método para obter a letra da música
     getLyrics(trackName: string, artistName: string) {
         this.spotifyService.getTrackLyrics(trackName, artistName).subscribe((lyrics) => {
             console.log('Lyrics:', lyrics);
-            // Aqui você pode abrir um modal ou exibir as letras no template
         });
     }
-}
+}1
