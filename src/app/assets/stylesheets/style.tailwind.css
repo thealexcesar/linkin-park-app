@@ -43,4 +43,23 @@
         @apply w-full mt-2 rounded-md;
     }
 
+    .section-wrapper {
+        @apply flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-4 justify-center mx-auto items-center;
+    }
+
+    .section-title {
+        @apply text-4xl font-bold mb-4;
+    }
+
+    .hero-button {
+        @apply bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700;
+    }
+
+    .layout-wrapper {
+        @apply flex flex-col md:flex-row justify-between;
+    }
+
+    .layout-image {
+        @apply w-full md:w-1/2 h-auto;
+  }
 }
