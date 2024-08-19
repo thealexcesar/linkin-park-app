@@ -1,0 +1,16 @@
+<div class="container mx-auto mt-10">
+    <h2 class="text-4xl font-bold text-center mb-6">{{ track?.name }}</h2>
+
+    <div class="text-center mb-10">
+        <audio controls [src]="track?.preview_url"></audio>
+        <p>{{ track?.artists[0]?.name }}</p>
+    </div>
+
+    <h3 class="text-2xl font-bold mb-4">Lyrics</h3>
+    <div class="lyrics">
+        <p>{{ lyrics }}</p>
+    </div>
+
+    <h3 class="text-2xl font-bold mb-4 mt-10">Watch on YouTube</h3>
+    <iframe [src]="youtubeLink" width="560" height="315"></iframe>
+</div>

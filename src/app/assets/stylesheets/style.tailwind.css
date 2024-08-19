@@ -15,6 +15,34 @@
 /* Components
 ------------------------------------------------------------------------------------------------ */
 @layer components {
+    .test-color {
+        color: #a3a4a9;
+    }
+
+    .container {
+        @apply mx-auto mt-10 px-4;
+    }
+
+    h2, h3 {
+        @apply text-gray-800;
+    }
+
+    .track, .album {
+        @apply p-4 rounded-lg shadow-md bg-gray-800 text-white;
+    }
+
+    .album {
+        @apply bg-white text-gray-800 shadow-lg hover:shadow-2xl transition-shadow;
+    }
+
+    .track h4, .album h4 {
+        @apply text-xl font-semibold mt-2;
+    }
+
+    audio {
+        @apply w-full mt-2 rounded-md;
+    }
+
     .section-wrapper {
         @apply flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-4 justify-center mx-auto items-center;
     }
@@ -33,9 +61,5 @@
 
     .layout-image {
         @apply w-full md:w-1/2 h-auto;
-    }
-
-    .test-color {
-        color: #a3a4a9;
-    }
+  }
 }

@@ -1,0 +1,36 @@
+<div class="container mx-auto mt-10 px-4">
+    <div *ngIf="errorMessage; else content">
+        <p class="text-red-500 text-center">{{ errorMessage }}</p>
+    </div>
+
+    <ng-template #content>
+        <h2 *ngIf="artist" class="text-4xl font-bold text-center mb-6 text-gray-800">{{ artist?.name }}</h2>
+        <p *ngIf="!artist" class="text-center text-gray-500">Loading artist data...</p>
+
+        <h3 class="text-3xl font-semibold mb-6 text-gray-900">Top Tracks</h3>
+        <div *ngIf="topTracks.length > 0; else loadingTopTracks" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div *ngFor="let track of topTracks" class="track p-4 bg-gray-800 text-white rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold mb-2">{{ track.name }}</h4>
+                <audio controls [src]="track.preview_url" class="w-full mt-2 rounded-md"></audio>
+            </div>
+        </div>
+        <ng-template #loadingTopTracks>
+            <p class="text-center text-gray-500">Loading top tracks...</p>
+        </ng-template>
+
+        <h3 class="text-3xl font-semibold mb-6 mt-10 text-gray-900">Albums</h3>
+        <div *ngIf="albums.length > 0; else loadingAlbums" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div *ngFor="let album of albums"
+                 class="album cursor-pointer p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow"
+                 (click)="goToAlbum(album.id)"
+            >
+                <img [src]="album.images[0]?.url" alt="{{ album.name }}" class="w-full h-auto rounded-md" />
+                <h4 class="text-xl font-semibold mt-4 text-gray-800">{{ album.name }}</h4>
+                <h5>{{ album.id }}</h5>
+            </div>
+        </div>
+        <ng-template #loadingAlbums>
+            <p class="text-center text-gray-500">Loading albums...</p>
+        </ng-template>
+    </ng-template>
+</div>

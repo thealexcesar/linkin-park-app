@@ -13,6 +13,11 @@ yarn-error.log
 
 # IDEs and editors
 .idea/
+.vscode
+*/.vscode/
+.idea
+*/.idea/
+**/.idea
 .project
 .classpath
 .c9/
@@ -41,10 +46,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-**/.idea/
-*/.idea/
-.idea
-
-vscode/
-*/.vscode/
-.vscode/
+# Credentials
+src/environments/environment.ts
