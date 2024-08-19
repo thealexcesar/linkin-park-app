@@ -1,0 +1,14 @@
+<ul class="mt-8 space-y-4">
+    <li *ngFor="let track of tracks" class="p-4 bg-gray-700 text-white rounded-lg shadow-md flex items-start">
+        <div class="mr-4 flex-1">
+            <span class="font-semibold">{{ track.name }}</span>
+            <div class="mt-2">
+                <button (click)="playTrack(track)" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Ouvir Prévia</button>
+                <button (click)="openSpotify(track)" class="ml-2 bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">Ouvir no Spotify</button>
+                <!--<button (click)="showLyrics(track)" class="ml-2 bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded">Ver Letra</button>-->
+            </div>
+        </div>
+        <iframe *ngIf="currentTrack === track && track.preview_url" [src]="track.preview_url | safeUrl" width="300" height="80" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    </li>
+</ul>
+<lyrics *ngIf="displayLyrics" [lyrics]="currentTrack?.lyrics" [trackName]="currentTrack?.name" (close)="closeLyricsModal()"></lyrics>

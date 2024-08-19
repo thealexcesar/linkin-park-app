@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SpotifyService} from "../../../services/spotfy.service";
 import {HttpClientModule} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'home',
@@ -17,19 +18,19 @@ export class HomeComponent implements OnInit {
     topTracks: any[] = [];
     errorMessage: string = '';
 
-    constructor(private spotifyService: SpotifyService) {}
+    constructor(private spotifyService: SpotifyService, private router: Router) {}
 
     ngOnInit() {
         this.spotifyService.searchArtistByName('Linkin Park').subscribe(
             artistId => {
-                console.log('Artist ID:', artistId);
+                console.log('Artista ID:', artistId);
 
                 this.spotifyService.getArtist(artistId).subscribe(
                     data => {
                         this.artist = data;
                     },
                     error => {
-                        this.errorMessage = 'Could not load artist data';
+                        this.errorMessage = 'Não foi possível carregar os dados do artista.';
                         console.error('Error:', error);
                     }
                 );
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
                         this.albums = data.items;
                     },
                     error => {
-                        this.errorMessage = 'Could not load albums';
+                        this.errorMessage = 'Não foi possível carregar os albuns.';
                         console.error('Error:', error);
                     }
                 );
@@ -49,15 +50,19 @@ export class HomeComponent implements OnInit {
                         this.topTracks = data.tracks;
                     },
                     error => {
-                        this.errorMessage = 'Could not load top tracks';
+                        this.errorMessage = 'Não foi possível carregar as principais faixas';
                         console.error('Error:', error);
                     }
                 );
             },
             error => {
-                this.errorMessage = 'Could not find artist';
-                console.error('Erro ao buscar artista:', error);
+                this.errorMessage = 'Não foi possível encontrar o artista.';
+                console.error(this.errorMessage, error);
             }
         );
+    }
+
+    goToAlbum(albumId: string) {
+        this.router.navigate(['/album', albumId]);
     }
 }
