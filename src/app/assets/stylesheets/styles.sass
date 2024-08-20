@@ -75,7 +75,7 @@ body
     background: $bg-secondary
     @include transition(0.2s, color)
   header
-    margin: 0 0 32px 0
+    position: fixed
     padding-top: 10px
     width: 100vw
     height: 10vh
@@ -94,7 +94,12 @@ body
     .card
       padding: 12px
       border-radius: 8px
+      cursor: pointer
       background-color: $bg-secondary
+      &:hover
+        transform: scale(1.01)
+        filter: brightness(1.1)
+        @include transition(300ms)
   .navbar-menu
     display: flex
     justify-content: space-between

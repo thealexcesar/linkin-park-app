@@ -1,24 +1,23 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import {SpotifyService} from "../../../services/spotfy.service";
 
 @Component({
     selector: 'lyrics',
     standalone: true,
-    imports: [ CommonModule, HttpClientModule ],
+    imports: [CommonModule, CommonModule, HttpClientModule,],
     templateUrl: './lyrics.component.html',
-    styleUrl: './lyrics.component.sass'
+    styleUrls: ['./lyrics.component.sass'],
+    providers: [SpotifyService]
 })
-export class LyricsComponent implements OnInit {
-    @Input() lyrics: string = '';
-    @Input() trackName: string = '';
-    @Output() close = new EventEmitter<void>();
+export class LyricsComponent {
+    @Input() trackName!: string;
+    @Input() lyrics!: string;
+    @Input() showLyricsModal: boolean = false;
+    @Output() closeModal = new EventEmitter<void>();
 
-    ngOnInit(): void {
-        console.log('Letras carregadas por:', this.trackName);
-    }
-
-    closeLyricsModal(): void {
-        this.close.emit();
+    closeLyricsModal() {
+        this.closeModal.emit();
     }
 }
