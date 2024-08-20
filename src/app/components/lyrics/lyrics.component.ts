@@ -17,7 +17,7 @@ export class LyricsComponent {
     @Input() showLyricsModal: boolean = false;
     @Output() closeModal = new EventEmitter<void>();
 
-    closeLyricsModal() {
+    closeLyricsModal(): void {
         this.closeModal.emit();
     }
 }

@@ -4,7 +4,7 @@ import {SpotifyService} from "../../../services/spotfy.service";
 import {HttpClientModule} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {faB, fas} from "@fortawesome/free-solid-svg-icons";
+import {faB} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
     selector: 'home',
@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
     errorMessage: string = '';
     currentPlayingAudio: HTMLAudioElement | null = null;
 
-    constructor(private spotifyService: SpotifyService, private router: Router, private library: FaIconLibrary) {
-        this.library.addIcons(faB);
+    constructor(private spotifyService: SpotifyService, private router: Router, private icon: FaIconLibrary) {
+        this.icon.addIcons(faB);
     }
 
     ngOnInit() {
