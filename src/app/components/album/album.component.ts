@@ -19,12 +19,12 @@ export class AlbumComponent implements OnInit {
     constructor(private route: ActivatedRoute, private spotifyService: SpotifyService) {}
 
     ngOnInit(): void {
-        const albumId = this.route.snapshot.paramMap.get('id');
+        const albumId: string | null = this.route.snapshot.paramMap.get('id');
         if (albumId) {
             this.spotifyService.getAlbum(albumId).subscribe(
                 (album) => {
                     this.album = album;
-                    console.log('Album loaded:', this.album);
+                    console.log('Album carregado:', this.album);
                 },
                 (error) => {
                     console.error('Erro ao carregar álbum:', error);
