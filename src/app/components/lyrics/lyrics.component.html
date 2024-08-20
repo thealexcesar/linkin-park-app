@@ -1,7 +1,7 @@
-<div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+<div *ngIf="showLyricsModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white rounded-lg p-6 max-w-xl w-full">
         <h3 class="text-2xl font-bold mb-4">Letras: {{ trackName }}</h3>
-        <p class="text-gray-700 max-h-96 overflow-y-auto whitespace-pre-wrap">{{ lyrics }}</p>
+        <p class="max-h-96 overflow-y-auto whitespace-pre-wrap">{{ lyrics }}</p>
         <button (click)="closeLyricsModal()" class="mt-6 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-400 transition">
             Fechar
         </button>
