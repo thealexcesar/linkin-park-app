@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import {SpotifyService} from "../../../services/spotfy.service";
 import {HttpClientModule} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {faB, fas} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
     selector: 'home',
     standalone: true,
-    imports: [CommonModule, HttpClientModule],
+    imports: [CommonModule, HttpClientModule, FontAwesomeModule],
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.sass'],
     providers: [SpotifyService]
@@ -17,8 +19,11 @@ export class HomeComponent implements OnInit {
     albums: any[] = [];
     topTracks: any[] = [];
     errorMessage: string = '';
+    currentPlayingAudio: HTMLAudioElement | null = null;
 
-    constructor(private spotifyService: SpotifyService, private router: Router) {}
+    constructor(private spotifyService: SpotifyService, private router: Router, private library: FaIconLibrary) {
+        this.library.addIcons(faB);
+    }
 
     ngOnInit() {
         this.spotifyService.searchArtistByName('Linkin Park').subscribe(
@@ -31,7 +36,7 @@ export class HomeComponent implements OnInit {
                     },
                     error => {
                         this.errorMessage = 'Não foi possível carregar os dados do artista.';
-                        console.error('Error:', error);
+                        console.error('Erro:', error);
                     }
                 );
 
@@ -41,7 +46,7 @@ export class HomeComponent implements OnInit {
                     },
                     error => {
                         this.errorMessage = 'Não foi possível carregar os albuns.';
-                        console.error('Error:', error);
+                        console.error('Erro:', error);
                     }
                 );
 
@@ -51,7 +56,7 @@ export class HomeComponent implements OnInit {
                     },
                     error => {
                         this.errorMessage = 'Não foi possível carregar as principais faixas';
-                        console.error('Error:', error);
+                        console.error('Erro:', error);
                     }
                 );
             },
@@ -60,6 +65,16 @@ export class HomeComponent implements OnInit {
                 console.error(this.errorMessage, error);
             }
         );
+    }
+
+    playAudio(audio: HTMLAudioElement) {
+        if (this.currentPlayingAudio && this.currentPlayingAudio !== audio) {
+            this.currentPlayingAudio.pause();
+            this.currentPlayingAudio.currentTime = 0;
+        }
+
+        this.currentPlayingAudio = audio;
+        audio.play();
     }
 
     goToAlbum(albumId: string) {

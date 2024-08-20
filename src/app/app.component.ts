@@ -9,6 +9,7 @@ import {AlbumComponent} from "./components/album/album.component";
 import {HttpClientModule} from "@angular/common/http";
 import {fas} from "@fortawesome/free-solid-svg-icons";
 import {MusicComponent} from "./components/music/music.component";
+import {DiscographyComponent} from "./components/discography/discography.component";
 
 @Component({
     selector: 'root',
@@ -23,7 +24,8 @@ import {MusicComponent} from "./components/music/music.component";
         FanAdminComponent,
         TrackDetailsComponent,
         AlbumComponent,
-        MusicComponent
+        MusicComponent,
+        DiscographyComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',
@@ -31,7 +33,7 @@ import {MusicComponent} from "./components/music/music.component";
 })
 export class AppComponent {
 
-    constructor(library: FaIconLibrary) {
-        library.addIconPacks(fas);
+    constructor(icon: FaIconLibrary) {
+        icon.addIconPacks(fas);
     }
 }

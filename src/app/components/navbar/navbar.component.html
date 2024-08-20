@@ -1,11 +1,7 @@
-<nav class="bg-gray-800 p-4">
-    <div class="container mx-auto">
-        <div class="flex justify-between items-center">
-            <a class="text-white text-lg font-bold" routerLink="/">Linkin Park</a>
-            <div>
-                <a class="text-gray-300 hover:text-white mr-4" routerLink="/">Home</a>
-                <a class="text-gray-300 hover:text-white" routerLink="/fan-admin">Fan Admin</a>
-            </div>
-        </div>
+<div class="navbar-menu">
+    <a href="/"> <fa-icon [icon]="['fas', 'home']" title="Início"/> </a>
+    <div class="flex space-x-4">
+        <a href="/discography">Discografia</a>
+        <a href="/about">Sobre</a>
     </div>
-</nav>
+</div>

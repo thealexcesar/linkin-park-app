@@ -32,6 +32,7 @@
               }
             ],
             "styles": [
+              "src/app/assets/stylesheets/style.tailwind.css",
               "src/app/assets/stylesheets/styles.sass"
             ],
             "scripts": []
@@ -97,8 +98,8 @@
               }
             ],
             "styles": [
-              "src/assets/app/stylesheets/style.tailwind.css",
-              "src/assets/app/stylesheets/styles.sass"
+              "src/app/assets/stylesheets/style.tailwind.css",
+              "src/app/assets/stylesheets/styles.sass"
             ],
             "scripts": []
           }
