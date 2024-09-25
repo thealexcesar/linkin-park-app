@@ -28,7 +28,6 @@ import {DiscographyComponent} from "./components/discography/discography.compone
         DiscographyComponent
     ],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.sass',
     providers: []
 })
 export class AppComponent {

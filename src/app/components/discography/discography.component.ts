@@ -2,17 +2,18 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule, DatePipe, NgForOf} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {SpotifyService} from "../../../services/spotfy.service";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
     selector: 'discography',
     standalone: true,
-    imports: [
-        DatePipe,
-        NgForOf,
-        CommonModule,
-        HttpClientModule
-    ],
+  imports: [
+    DatePipe,
+    NgForOf,
+    CommonModule,
+    HttpClientModule,
+    RouterLink
+  ],
     templateUrl: './discography.component.html',
     styleUrl: './discography.component.sass',
     providers: [SpotifyService]
