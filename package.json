@@ -26,6 +26,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "angular-oauth2-oidc": "^17.0.2",
     "dotenv": "^16.4.5",
+    "glob": "^11.0.0",
+    "rimraf": "^6.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -45,5 +47,8 @@
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
     "typescript": "~5.5.2"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
